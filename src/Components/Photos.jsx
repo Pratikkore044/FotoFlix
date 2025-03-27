@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { FaHeart, FaDownload, FaShare } from 'react-icons/fa'
+import { FaHeart, FaDownload, FaShare , FaThumbsUp} from 'react-icons/fa'
 import "yet-another-react-lightbox/styles.css";
 import Lightbox from "yet-another-react-lightbox";
 
@@ -11,6 +11,7 @@ const Photos = () => {
     const [lightboxIndex, setLightboxIndex] =  useState(0);
     const [isLightboxOpen, setIsLightboxOpen] =  useState(false);
     const [searchQuery, setSearchQuery] =  useState("");
+    const [page, setPage] = useState(1);
 
 
     useEffect(() => {
@@ -22,6 +23,8 @@ const Photos = () => {
             if(searchQuery){
                 url = `https://api.unsplash.com/search/photos/${clientID}&query=${searchQuery}`
             }
+            url += `&page=${page}`;
+
             try {
                 const response = await fetch(url);
                 const data = await response.json()
@@ -33,7 +36,19 @@ const Photos = () => {
             }
         }
         fetchImages();
-    }, [searchQuery]);
+    }, [searchQuery,page]);
+
+    useEffect(()=>{
+        const handleSrcoll = () =>{
+            if(!loading && window.innerHeight +window.screenY >= document.body.scrollHeight - 200)
+            {
+                setPage((prevPage)=>prevPage+1);
+            };
+        }
+            window.addEventListener('scroll',handleSrcoll);
+            return () => window.removeEventListener('scroll',handleSrcoll)
+        
+    },[loading]);
 
     const handleFavouriteClick = (photoId) => {
         setFavouritePhotos((prevFavourites) => {
@@ -87,7 +102,7 @@ const Photos = () => {
                                     </button>
                                     <div className="photo-actions">
                                         <p>
-                                            <FaHeart className='heart-icon' /> {photo.likes}
+                                            <FaThumbsUp className='heart-icon' /> {photo.likes}
                                         </p>
                                         <button className='share-btn' onClick={()=>handleShare(photo.urls.regular)}>
                                             <FaShare />

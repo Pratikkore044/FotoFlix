@@ -1,6 +1,6 @@
 import React from "react"
 import Favourites from "./Components/Favourites";
-import Photos from "./Components/photos";
+import Photos from "./Components/Photos";
 import { FaSearch } from "react-icons/fa";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"
 import { useState,useEffect } from "react";
