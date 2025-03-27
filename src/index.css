@@ -228,7 +228,7 @@ Stock Photos
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   }
   
-  .navbar__logo {
+  .navbar_logo {
     font-size: 2rem;
     font-weight: bold;
     color: #260535;
@@ -238,12 +238,12 @@ Stock Photos
   }
   
   /* Optional: Styling for Navbar Links */
-  .navbar__links {
+  .navbar_links {
     display: flex;
     align-items: center;
   }
   
-  .navbar__links a {
+  .navbar_links a {
     padding: 0.5rem 1rem;
     font-size: 1.2rem; /* Increase the font size */
     font-weight: 600; /* Make it bolder */
@@ -254,12 +254,12 @@ Stock Photos
     text-decoration: none;
   }
   
-  .navbar__links a:hover {
+  .navbar_links a:hover {
     background-color: rgb(81, 16, 103);
     color:whitesmoke
   }
   
-  .navbar__search-form {
+  .navbar_search-form {
     display: flex;
     align-items: center;
   }
@@ -399,7 +399,7 @@ Stock Photos
     padding: 5rem 0;
   }
   
-  .favourites__center {
+  .favourites_center {
     width: 90vw;
     max-width: var(--max-width);
     margin: 0 auto;
@@ -441,7 +441,7 @@ Stock Photos
   }
   
   /* Remove the Default List Styles from the Favourites Component */
-  .favourites__list {
+  .favourites_list {
     list-style-type: none;
     margin: 0;
     padding: 0;
