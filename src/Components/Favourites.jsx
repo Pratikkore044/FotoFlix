@@ -15,15 +15,14 @@ const Favourites = ({favouritePhotos,handleRemoveFavourite}) => {
           <div className="photos-center">
             {favouritePhotos.map((image, index) => {
               return (
-                <article
+                <Photos
                   key={index}
                   {...image}
-                  isFavorite={true} // All images in the Favourite component are favorites
-                  onFavoriteClick={() => handleRemoveFavourite(image)} // Pass the handleRemoveFavorite function here
+                  isFavorite={true} 
+                  onFavoriteClick={() => handleRemoveFavourite(image)} 
                 >
-                  {/* Pass isFavorite to Photos to show the favorite status */}
                   <span>Added to Favorites</span>
-                </article>
+                </Photos>
               );
             })}
           </div>
