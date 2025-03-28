@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Favourites from "./Components/Favourites";
 import Photos from "./Components/Photos";
 import { FaSearch } from "react-icons/fa";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import generateFavicon from "./utils/faviconGenerator";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -11,6 +12,9 @@ function App() {
     e.preventDefault();
     setQuery(e.target[0].value);
   };
+  useEffect(() => {
+    generateFavicon("P"); 
+}, []);
 
   return (
     <BrowserRouter>
