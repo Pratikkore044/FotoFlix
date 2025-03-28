@@ -4,12 +4,12 @@ const generateFavicon = (text = "P") => {
     canvas.height = 64;
     const ctx = canvas.getContext("2d");
 
-    ctx.fillStyle = "#ffffff"; // White background
+    ctx.fillStyle = "#ffffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
 
     ctx.font = "bold 48px Arial";
-    ctx.fillStyle = "#000000"; // Black text
+    ctx.fillStyle = "#000000";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText(text, canvas.width / 2, canvas.height / 2);
